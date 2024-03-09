@@ -1,0 +1,66 @@
+import time
+
+def intro():
+    print("Welcome to the Interactive Story Game!")
+    print("You find yourself standing at a crossroad.")
+    print("Which path do you choose?")
+
+def choose_path():
+    print("\n1. Go left.")
+    print("2. Go right.")
+    choice = input("Enter your choice (1 or 2): ")
+    return choice
+
+def left_path():
+    print("\nYou chose to go left.")
+    time.sleep(1)
+    print("You encounter a mystical forest.")
+    time.sleep(1)
+    print("Do you want to explore further?")
+    explore = input("Enter 'yes' or 'no': ").lower()
+    if explore == "yes":
+        print("\nYou discover a hidden treasure!")
+    else:
+        print("\nYou decide not to explore and continue your journey.")
+
+def right_path():
+    print("\nYou chose to go right.")
+    time.sleep(1)
+    print("You come across a raging river.")
+    time.sleep(1)
+    print("Do you try to swim across or find another way?")
+    choice = input("Enter 'swim' or 'find another way': ").lower()
+    if choice == "swim":
+        print("\nYou bravely attempt to swim across but get swept away by the strong current.")
+        print("Game Over!")
+    else:
+        print("\nYou search for another way and find a sturdy bridge to cross the river safely.")
+
+def play_again():
+    while True:
+        print("\nDo you want to play again?")
+        play = input("Enter 'yes' or 'no': ").lower()
+        if play == "yes":
+            return True
+        elif play == "no":
+            return False
+        else:
+            print("Invalid input. Please enter 'yes' or 'no'.")
+
+def main():
+    intro()
+    while True:
+        choice = choose_path()
+        if choice == "1":
+            left_path()
+        elif choice == "2":
+            right_path()
+        else:
+            print("Invalid choice. Please enter '1' or '2'.")
+            continue
+        if not play_again():
+            print("Thanks for playing!")
+            break
+
+if __name__ == "__main__":
+    main()
